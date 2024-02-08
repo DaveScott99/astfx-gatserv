@@ -1,0 +1,4 @@
+com/daverj/gatewayservice/GatewayServiceApplication.class
+com/daverj/gatewayservice/config/WebConfig.class
+com/daverj/gatewayservice/config/JWTConverter.class
+com/daverj/gatewayservice/config/SecurityConfig.class
