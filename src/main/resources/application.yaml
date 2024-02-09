@@ -30,7 +30,7 @@ eureka:
     preferIpAddress: true
   client:
     service-url:
-      defaultZone: http://ec2-52-67-63-144.sa-east-1.compute.amazonaws.com:8761/eureka/
+      defaultZone: http://discovery-service:8761/eureka/
 
 cors:
   origins: ${CORS_ORIGINS:http://localhost:5173,http://localhost:3000}
