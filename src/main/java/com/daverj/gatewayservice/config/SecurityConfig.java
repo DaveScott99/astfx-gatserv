@@ -3,10 +3,14 @@ package com.daverj.gatewayservice.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.server.SecurityWebFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.cors.reactive.CorsConfigurationSource;
+
+import java.util.List;
 
 @Configuration
 @EnableWebFluxSecurity
@@ -26,6 +30,7 @@ public class SecurityConfig {
                         .pathMatchers("/account/profile/**").hasAnyRole("CUSTOMER", "ADMIN")
                         .pathMatchers("/media/**").hasRole("ADMIN")
                         .pathMatchers(HttpMethod.GET, "/media/timeline/**").hasAnyRole("CUSTOMER", "ADMIN")
+                        .pathMatchers(HttpMethod.GET, "/test/**").permitAll()
                         .anyExchange()
                         .authenticated()))
 
@@ -33,7 +38,8 @@ public class SecurityConfig {
                         .jwt(jwtConfigurer -> {
                             jwtConfigurer.jwtAuthenticationConverter(new JWTConverter());
                         })
-                );
+                )
+                .cors(cors -> cors.disable());
 
         return http.build();
     }

@@ -9,7 +9,7 @@ HELP.md
 /target/maven-status/
 /target/surefire-reports/
 /target/test-classes/
-
+/target/
 
 ### STS ###
 .apt_generated
@@ -38,3 +38,4 @@ build/
 
 ### VS Code ###
 .vscode/
+
