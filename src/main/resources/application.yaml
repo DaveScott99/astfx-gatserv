@@ -18,7 +18,7 @@ spring:
           predicates:
             - Path=/account/**
         - id: media-route
-          uri: http://localhost:8763
+          uri: lb://media
           predicates:
             - Path=/media/**
 
